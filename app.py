@@ -28,6 +28,18 @@ def resultado():
 
     else:
         return "Não definido", 200
+    
+    
+    
+#recuperando informações
+#36, 37, 38 e 39 ajusta as rotas para receber todos os valores que passamos pela url e identificar qual informação está recebendo
+@app.route("/api/")
+@app.route("/api/<versao>/")
+@app.route("/api/<versao>/<metodo>/")
+@app.route("/api/<versao>/<metodo>/<pagina>/")
+#função que correponde a dota da api e atribui parâmetros de cada valor
+def api(versao = None, metodo = None, pagina = None):
+    return "Versao: {}<br> Metodo: {}<br> Página: {}".format(versao, metodo, pagina), 200
 
 app.run()
     
